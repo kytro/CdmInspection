@@ -3,7 +3,7 @@
 SELECT *
 FROM (
 	select ROW_NUMBER() OVER(ORDER BY count_big(procedure_occurrence_id) DESC) AS ROW_NUM,
-       procedure_source_value as "Source Value",
+       procedure_source_value as `Source Value`,
        floor((count_big(procedure_occurrence_id)+99)/100)*100 as "#Records",
        floor((count_big(distinct person_id)+99)/100)*100 as "#Subjects"
        from @cdmDatabaseSchema.procedure_occurrence where procedure_concept_id = 0
