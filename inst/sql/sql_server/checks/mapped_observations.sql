@@ -3,7 +3,7 @@
 SELECT *
 FROM (
 	select ROW_NUMBER() OVER(ORDER BY count_big(observation_id) DESC) AS ROW_NUM,
-       Cr.concept_name as "Concept Name",
+       Cr.concept_name as `Concept Name`,
        floor((count_big(observation_id)+99)/100)*100 as "#Records",
        floor((count_big(distinct person_id)+99)/100)*100 as "#Subjects"
        from @cdmDatabaseSchema.observation C
