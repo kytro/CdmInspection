@@ -3,7 +3,7 @@
 SELECT *
 FROM (
 	select ROW_NUMBER() OVER(ORDER BY count_big(device_exposure_id) DESC) AS ROW_NUM,
-       device_source_value as "Source Value",
+       device_source_value as `Source Value`,
        floor((count_big(device_exposure_id)+99)/100)*100 as "#Records",
        floor((count_big(distinct person_id)+99)/100)*100 as "#Subjects"
        from @cdmDatabaseSchema.device_exposure where device_concept_id = 0
