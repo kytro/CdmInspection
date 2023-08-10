@@ -3,7 +3,7 @@
 SELECT *
 FROM (
 	select ROW_NUMBER() OVER(ORDER BY count_big(*) DESC) AS ROW_NUM,
-       visit_source_value as "Source Value",
+       visit_source_value as `Source Value`,
        floor((count_big(*)+99)/100)*100 as "#Records",
        floor((count_big(distinct person_id)+99)/100)*100 as "#Subjects"
   from @cdmDatabaseSchema.visit_occurrence
